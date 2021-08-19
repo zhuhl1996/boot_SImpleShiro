@@ -1,0 +1,24 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:shiro="http://www.thymeleaf.org/thymeleaf-extras-shiro"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+    欢迎，shrio
+    <div th:if="${session.name == null}">
+        <p> <a type="button" th:href="@{/login}" >login</a></p>
+    </div>
+</p>
+
+<div shiro:hasPermission="1">
+    <a class="button" th:href="@{/add}">新增</a>
+</div>
+<div shiro:hasPermission="2">
+    <a class="button" th:href="@{/update}">修改</a>
+</div>
+
+</body>
+</html>
